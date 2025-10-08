@@ -9,3 +9,10 @@ def home(request):
 def pricing(request):
     plans = Plan.objects.all()
     return render(request, 'pricing.html', {'plans': plans})
+
+
+
+from django.shortcuts import render
+
+def login_view(request):
+    return render(request, 'login.html')

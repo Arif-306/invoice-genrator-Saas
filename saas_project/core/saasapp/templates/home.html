@@ -1,15 +1,43 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>SaaS Home</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>AlphaSaaS - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-900 text-white">
-<section class="text-center py-20">
-<h1 class="text-5xl font-bold">Welcome to AlphaSaaS</h1>
-<p class="mt-4 text-gray-400">Your all-in-one subscription management solution.</p>
-<a href="/pricing" class="mt-8 inline-block bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700">View Plans</a>
-</section>
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center py-4 px-10 bg-gray-800">
+    <h1 class="text-2xl font-bold text-red-500">AlphaSaaS</h1>
+    <div>
+      <a href="/" class="px-4 hover:text-red-400">Home</a>
+      <a href="/pricing" class="px-4 hover:text-red-400">Pricing</a>
+      <a href="/login" class="px-4 hover:text-red-400">Login</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20">
+    <h1 class="text-5xl font-bold mb-4">Run Your Business Smarter with AlphaSaaS</h1>
+    <p class="text-gray-400 mb-8">Manage your clients, subscriptions, and invoices — all in one place.</p>
+    <a href="/pricing" class="bg-red-600 px-8 py-3 rounded-lg hover:bg-red-700">Get Started</a>
+  </section>
+
+  <!-- Features Section -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-10 py-16">
+    <div class="bg-gray-800 p-6 rounded-lg text-center">
+      <h3 class="text-xl font-semibold mb-2">📊 Analytics Dashboard</h3>
+      <p class="text-gray-400">Track customer activity and subscription insights in real time.</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded-lg text-center">
+      <h3 class="text-xl font-semibold mb-2">💳 Secure Payments</h3>
+      <p class="text-gray-400">Integrated payment systems for smooth checkout and billing.</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded-lg text-center">
+      <h3 class="text-xl font-semibold mb-2">👥 User Management</h3>
+      <p class="text-gray-400">Role-based access for admins, clients, and teams.</p>
+    </div>
+  </section>
 </body>
 </html>
