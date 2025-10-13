@@ -1,3 +1,6 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,29 +8,70 @@
   <title>Dashboard | AlphaSaaS</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-white">
-  <nav class="flex justify-between items-center bg-gray-800 py-4 px-10">
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <!-- 🔹 Navigation Bar -->
+  <nav class="flex justify-between items-center bg-gray-800 py-4 px-10 shadow-md">
     <h1 class="text-2xl font-bold text-red-500">AlphaSaaS Dashboard</h1>
-    <a href="/logout" class="bg-red-600 px-4 py-2 rounded hover:bg-red-700">Logout</a>
+
+    <div class="space-x-4">
+      <a href="{% url 'pricing' %}" class="bg-gray-700 px-4 py-2 rounded hover:bg-gray-600 transition">💰 Pricing</a>
+      <a href="/logout" class="bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition">🚪 Logout</a>
+    </div>
   </nav>
 
-  <section class="p-10">
-    <h2 class="text-3xl mb-6">Welcome, {{ user.username }}</h2>
+  <!-- 🔹 Dashboard Section -->
+  <section class="flex-grow p-10">
+    <h2 class="text-3xl mb-8 font-semibold">Welcome, <span class="text-red-400">{{ user.username }}</span></h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+    <!-- 🔹 Info Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <!-- Current Plan -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center hover:scale-105 transition transform duration-200">
         <h3 class="text-xl font-bold">Current Plan</h3>
         <p class="text-gray-400 mt-2">{{ subscription.plan.name }}</p>
       </div>
-      <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+
+      <!-- Plan Expiry -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center hover:scale-105 transition transform duration-200">
         <h3 class="text-xl font-bold">Plan Expiry</h3>
         <p class="text-gray-400 mt-2">{{ subscription.end_date }}</p>
       </div>
-      <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+
+      <!-- Total Users -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center hover:scale-105 transition transform duration-200">
         <h3 class="text-xl font-bold">Total Users</h3>
         <p class="text-gray-400 mt-2">{{ total_users }}</p>
       </div>
     </div>
+
+    <!-- 🔹 Invoice Buttons Section -->
+    <div class="flex flex-wrap justify-center gap-6 mt-8">
+      <!-- Generate Invoice -->
+      <a href="{% url 'invoice' %}" 
+         class="bg-red-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-red-700 shadow-lg transition transform hover:scale-105">
+         🧾 Generate Invoice
+      </a>
+
+      <!-- Create Invoice -->
+      <a href="{% url 'create_invoice' %}" 
+         class="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 shadow-lg transition transform hover:scale-105">
+         ➕ Create New Invoice
+      </a>
+
+      <!-- View Invoices (optional future use) -->
+      <a href="#" 
+         class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 shadow-lg transition transform hover:scale-105">
+         📄 View All Invoices
+      </a>
+    </div>
   </section>
+
+  <!-- 🔹 Footer -->
+  <footer class="bg-gray-800 text-center py-4 text-gray-400 text-sm">
+    © 2025 AlphaSaaS — All Rights Reserved.
+  </footer>
+
 </body>
 </html>

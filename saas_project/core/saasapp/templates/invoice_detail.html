@@ -1,0 +1,22 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice Detail | AlphaSaaS</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+  <div class="max-w-2xl mx-auto mt-10 bg-gray-800 p-8 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-bold mb-4 text-red-500">Invoice #{{ invoice.id }}</h1>
+    <p><strong>Client Name:</strong> {{ invoice.client_name }}</p>
+    <p><strong>Amount:</strong> ${{ invoice.amount }}</p>
+    <p><strong>Description:</strong> {{ invoice.description }}</p>
+    <p><strong>Date:</strong> {{ invoice.date }}</p>
+    <hr class="my-4 border-gray-700">
+    <a href="/dashboard" class="bg-gray-700 px-4 py-2 rounded hover:bg-gray-600">← Back to Dashboard</a>
+  </div>
+</body>
+</html>
