@@ -17,8 +17,8 @@ class Plan(models.Model):
 # 🔹 SUBSCRIPTION MODEL
 # -------------------------------
 class Subscription(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='subscriptions')
+    plan = models.ForeignKey(Plan, on_delete=models.CASCADE, related_name='subscriptions')
     start_date = models.DateField(auto_now_add=True)
     end_date = models.DateField(blank=True, null=True)
     active = models.BooleanField(default=True)
@@ -32,7 +32,7 @@ class Subscription(models.Model):
 # -------------------------------
 class Invoice(models.Model):
     invoice_number = models.CharField(max_length=50, unique=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='invoices')
     client_name = models.CharField(max_length=100)
     plan_name = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=10, decimal_places=2)

@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'saas_db',
+        'NAME': 'saasapp_db',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',    
